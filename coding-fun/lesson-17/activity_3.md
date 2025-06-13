@@ -6,14 +6,14 @@
 
 
 
-# Planting Beets!
+# Посадка свеклы!
 
-## Step 1
+## Шаг 1
 
-Two functions **plantSeed** and **plantSection** are provided for you. Create a new ``||player: on chat||`` command and ``||functions: call plantSection||`` within it. Add an ``||logic: if||`` statement that checks if ``||agent: agent inspects block down||`` .  
-If the block down is ``||blocks: lapis lazuli||``, then the agent needs  to ``||agent: turn right||``, ``||agent: move forward||`` and ``||agent: turn right||``.  
-``||logic: Else||`` the agent ``||agent: inspects the block down||`` and it is ``||blocks: a block of quartz||``, then the agent needs to ``||agent: turn left||``, ``||agent: move forward||`` and ``||agent: turn left||``.  
-Finally ``||functions: call plantSection||``.
+Для тебя предоставлены две функции: **посадитьСемя** и **посадитьСекцию**. Создай новую команду ``||player: при команде чата||`` и вызови ``||functions: вызвать plantSection||`` внутри неё. Добавь оператор ``||logic: если||``, который проверяет, ``||agent: если агент осматривает блок вниз||``.
+Если блок внизу — это ``||blocks: лазурит||``, то агенту нужно ``||agent: повернуть направо||``, ``||agent: двигаться вперед||`` и ``||agent: повернуть направо||``.
+``||logic: Иначе||``, если ``||agent: агент осматривает блок вниз||`` и это ``||blocks: кварцевый блок||``, то агенту нужно ``||agent: повернуть налево||``, ``||agent: двигаться вперед||`` и ``||agent: повернуть налево||``.
+Наконец, вызови ``||functions: plantSection||``.
 
 #### ~ tutorialhint
 ``` blocks
@@ -24,7 +24,7 @@ player.onChat("run", function () {
 
 ```template
 /**
- * We are calling a function inside a function
+ * Мы вызываем функцию внутри функции
  */
 function plantSection () {
     for (let index = 0; index < 11; index++) {
@@ -33,7 +33,7 @@ function plantSection () {
     agent.move(FORWARD, 1)
 }
  /**
- * The code was modified to not place seeds if there's no block under the Agent.
+ * Код был изменен, чтобы не сажать семена, если под Агентом нет блока.
  */
 function plantSeed () {
     agent.till(FORWARD)
@@ -44,11 +44,11 @@ function plantSeed () {
 }
 
 /**
-* You need to check if the Agent is stepping on a lapis block turn right, if quartz turn left.
+* Тебе нужно проверить, стоит ли Агент на лазуритовом блоке, чтобы повернуть направо, если на кварцевом — налево.
 */
 ```
-## Step 2
-Add an ``||logic:if||`` statement to the ``||player:on chat||`` command. Within the **true** of the ``||logic:if|`` block add a ``||logic:" " = " "||`` block. If when ``||agent:agent inspects block down||`` is **equal (=)** to ``||blocks:lapis lazuli||`` the agent needs to ``||agent: turn right||``, ``||agent:move forward||`` and ``||agent:turn right||``. 
+## Шаг 2
+Добавь оператор ``||logic: если||`` в команду ``||player: при команде чата||``. Внутри блока **истина** оператора ``||logic: если||`` добавь блок ``||logic: " " = " "||``. Если ``||agent: агент осматривает блок вниз||`` **равно (=)** ``||blocks: лазуритовому блоку||``, то агенту нужно ``||agent: повернуть направо||``, ``||agent: двигаться вперед||`` и ``||agent: повернуть направо||``.
 
 #### ~ tutorialhint
 ``` blocks
@@ -65,7 +65,7 @@ player.onChat("run", function () {
 
 ```template
 /**
- * We are calling a function inside a function
+ * Мы вызываем функцию внутри функции
  */
 function plantSection () {
     for (let index = 0; index < 11; index++) {
@@ -74,7 +74,7 @@ function plantSection () {
     agent.move(FORWARD, 1)
 }
  /**
- * The code was modified to not place seeds if there's no block under the Agent.
+ * Код был изменен, чтобы не сажать семена, если под Агентом нет блока.
  */
 function plantSeed () {
     agent.till(FORWARD)
@@ -85,12 +85,12 @@ function plantSeed () {
 }
 
 /**
-* You need to check if the Agent is stepping on a lapis block turn right, if quartz turn left.
+*  Тебе нужно проверить, стоит ли Агент на лазуритовом блоке, чтобы повернуть направо, если на кварцевом — налево.
 */
 ```
 
-## Step 3
-Click two times on the **+** symbols of the ``||logic:if||`` block. Click on the ** - ** to delete the **else** block. Add a ``||logic:" " = " "||`` block to the **blank** space of the ``||logic:else if||`` block. If ``||agent:agent inspects block down||`` is **equal (=)** to ``||blocks:a block of quartz||``. The agent needs to ``||agent:turn left||``, ``||agent:move forward||`` and ``||agent:turn left||``.  
+## Шаг 3
+Дважды нажми на символы **+** блока ``||logic: если||``. Нажми на **-** , чтобы удалить блок **иначе**. Добавь блок ``||logic: " " = " "||`` в **пустое** пространство блока ``||logic: иначе если||``. Если ``||agent: агент осматривает блок вниз||`` **равно (=)** ``||blocks: кварцевому блоку||``, то агенту нужно ``||agent: повернуть налево||``, ``||agent: двигаться вперед||`` и ``||agent: повернуть налево||``.
 
 #### ~ tutorialhint
 ``` blocks
@@ -136,7 +136,7 @@ function plantSeed () {
 ```
 
 ## Step 4
- Finally add another ``||functions: call plantSection||`` within the ``||player:on chat||`` command outside of the ``||logic:if||`` statement.  
+Наконец, добавь ещё один вызов ``||functions: plantSection||`` внутри команды ``||player: при команде чата||`` за пределами оператора ``||logic: если||``.
 
 #### ~ tutorialhint
 ``` blocks
@@ -157,7 +157,7 @@ player.onChat("run", function () {
 
 ```template
 /**
- * We are calling a function inside a function
+ * Мы вызываем функцию внутри функции
  */
 function plantSection () {
     for (let index = 0; index < 11; index++) {
@@ -166,7 +166,7 @@ function plantSection () {
     agent.move(FORWARD, 1)
 }
  /**
- * The code was modified to not place seeds if there's no block under the Agent.
+ * Код был изменен, чтобы не сажать семена, если под Агентом нет блока.
  */
 function plantSeed () {
     agent.till(FORWARD)
@@ -177,11 +177,11 @@ function plantSeed () {
 }
 
 /**
-* You need to check what block your Agent is on. If on a lapis block turn right, else if quartz turn left.
+* Тебе нужно проверить, на каком блоке стоит твой Агент. Если на лазуритовом блоке, повернуть направо, если на кварцевом — налево.
 */
 
 /**
-* You can click on the + button of an If block to add an Else
+* Ты можешь нажать на кнопку + блока Если, чтобы добавить Иначе
 */
 
 ```
