@@ -5,17 +5,18 @@
 ### @explicitHints 1
 
 
-# Build a Town Hall!
+# Посадка!
 
-## Step 1
-We created a function **plantSeed** for you. It is simply the code that you used for the previous activity. Now drag an ``||player: on chat||`` command into the workspace and name it **run**. Add a ``||loops: repeat||`` loop and click on the **Advanced** section then click **Functions** and drag a``||function:call plantSeed||`` function into your loop. Count how many times the Agent needs to repeat **plantSeed** function. 
+## Шаг 1
+Мы создали для тебя функцию **plantSeed**. Это просто код, который ты использовал для предыдущего задания. Теперь перетащи команду ``||player: при команде чата||`` в рабочую область и назови её **запуск**. Добавь цикл ``||loops: повтор||``, затем нажми на раздел **Расширенные** и выбери **Функции**, и перетащи функцию ``||function: вызвать plantSeed||`` в свой цикл. Посчитай, сколько раз Агенту нужно повторить функцию **посадитьСемя**.
 
 ### ~ tutorialHint
-Functions live in the **Advanced** section. It is also a good practice to leave notes about the code that's written, like the one that we left for you about functions. 
+Функции находятся в разделе **Расширенные**. Также хорошей практикой является оставлять заметки о написанном коде, как мы оставили для тебя о функциях.
+
 
 ```template
 /**
- * A function allows you to easily reuse code.
+ * Функция позволяет легко повторно использовать код.
  */
 function plantSeed () {
     agent.till(FORWARD)
