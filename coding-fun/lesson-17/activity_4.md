@@ -5,16 +5,16 @@
 ### @explicitHints 1
 
 
-# Beets!
+# Свекла!
 
-## Step 1
-You are provided with three functions: ``||functions: plantSeed||``, ``||functions: plantSection||`` and ``||functions: checkTurn||``. First, create  a new ``||player: on chat||`` command and add your condition: ``||loops:while||`` the Agent is ``||agent:inspecting the block down||``, and it is not a **gold block**, ``||functions: call||`` the necessary functions. 
+## Шаг 1
+Тебе предоставлены три функции: ``||functions: plantSeed||``, ``||functions: plantSection||`` и ``||functions: checkTurn||``. Сначала создай новую команду ``||player: при команде чата||`` и добавь своё условие: ``||loops: пока||`` Агент ``||agent: осматривает блок вниз||`` и это не **золотой блок**, вызови необходимые функции.
 
 
 
 ```template
 /**
- * We are calling a function inside a function
+ * Мы вызываем функцию внутри функции
  */
 function plantSection () {
     for (let index = 0; index < 11; index++) {
@@ -23,7 +23,7 @@ function plantSection () {
     agent.move(FORWARD, 1)
 }
  /**
- * The code was modified to not place seeds if there's no block under the Agent.
+ * Код был изменён, чтобы не сажать семена, если под Агентом нет блока.
  */
 function plantSeed () {
     agent.till(FORWARD)
