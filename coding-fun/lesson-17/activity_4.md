@@ -8,7 +8,7 @@
 # Свекла!
 
 ## Шаг 1
-Тебе предоставлены три функции: ``||functions: plantSeed||``, ``||functions: plantSection||`` и ``||functions: checkTurn||``. Сначала создай новую команду ``||player: при команде чата||`` и добавь своё условие: ``||loops: пока||`` Агент ``||agent: осматривает блок вниз||`` и это не **золотой блок**, вызови необходимые функции.
+Тебе предоставлены три функции: ``||functions: посадитьСемена||``, ``||functions: посадитьСекцию||`` и ``||functions: проверитьПоворот||``. Сначала создай новую команду ``||player: при команде чата||`` и добавь своё условие: ``||loops: пока||`` Агент ``||agent: осматривает блок вниз||`` и это не **золотой блок**, вызови необходимые функции.
 
 
 
@@ -16,23 +16,21 @@
 /**
  * Мы вызываем функцию внутри функции
  */
-function plantSection () {
+function посадитьСекцию () {
     for (let index = 0; index < 11; index++) {
-        plantSeed()
+        посадитьСемена()
     }
     agent.move(FORWARD, 1)
 }
  /**
  * Код был изменён, чтобы не сажать семена, если под Агентом нет блока.
  */
-function plantSeed () {
+function посадитьСемена () {
     agent.till(FORWARD)
     agent.move(FORWARD, 1)
-    if (agent.detect(AgentDetection.Block, DOWN)) {
-        agent.place(DOWN)
-    }
+    agent.place(DOWN)
 }
-function checkTurn () {
+function проверитьПоворот () {
     if (agent.inspect(AgentInspection.Block, DOWN) == LAPIS_LAZULI_BLOCK) {
         agent.turn(RIGHT_TURN)
         agent.move(FORWARD, 1)
@@ -50,12 +48,12 @@ function checkTurn () {
 ```ghost
 player.onChat("plant", function () {
     while (agent.inspect(AgentInspection.Block, DOWN) != GOLD_BLOCK) {
-        plantSection()
-        checkTurn()
+        посадитьСекцию()
+        проверитьПоворот()
     }
 })
 
-function checkTurn () {
+function проверитьПоворот () {
     if (agent.inspect(AgentInspection.Block, DOWN) == LAPIS_LAZULI_BLOCK) {
         agent.turn(RIGHT_TURN)
         agent.move(FORWARD, 1)
