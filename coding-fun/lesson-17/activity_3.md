@@ -10,10 +10,8 @@
 
 ## Шаг 1
 
-Для тебя предоставлены две функции: **посадитьСемя** и **посадитьСекцию**. Создай новую команду ``||player: при команде чата||`` и вызови ``||functions: вызвать plantSection||`` внутри неё. Добавь оператор ``||logic: если||``, который проверяет, ``||agent: если агент осматривает блок вниз||``.
-Если блок внизу — это ``||blocks: лазурит||``, то агенту нужно ``||agent: повернуть направо||``, ``||agent: двигаться вперед||`` и ``||agent: повернуть направо||``.
-``||logic: Иначе||``, если ``||agent: агент осматривает блок вниз||`` и это ``||blocks: кварцевый блок||``, то агенту нужно ``||agent: повернуть налево||``, ``||agent: двигаться вперед||`` и ``||agent: повернуть налево||``.
-Наконец, вызови ``||functions: plantSection||``.
+Для тебя предоставлены две функции: **посадитьСемена** и **посадитьСекцию**. Создай новую команду ``||player: при команде чата||`` и вызови ``||functions: вызвать посадитьСекцию||`` внутри неё.
+
 
 #### ~ tutorialhint
 ``` blocks
@@ -22,25 +20,27 @@ player.onChat("run", function () {
 })
 ```
 
+```ghost
+player.say(":)")
+```
+
 ```template
 /**
  * Мы вызываем функцию внутри функции
  */
-function plantSection () {
+function посадитьСекцию () {
     for (let index = 0; index < 11; index++) {
-        plantSeed()
+        посадитьСемена()
     }
     agent.move(FORWARD, 1)
 }
  /**
  * Код был изменен, чтобы не сажать семена, если под Агентом нет блока.
  */
-function plantSeed () {
+function посадитьСемена () {
     agent.till(FORWARD)
     agent.move(FORWARD, 1)
-    if (agent.detect(AgentDetection.Block, DOWN)) {
-        agent.place(DOWN)
-    }
+    agent.place(DOWN)
 }
 
 /**
@@ -53,7 +53,7 @@ function plantSeed () {
 #### ~ tutorialhint
 ``` blocks
 player.onChat("run", function () {
-    plantSection()
+    посадитьСекцию()
     if (agent.inspect(AgentInspection.Block, DOWN) == LAPIS_LAZULI_BLOCK) {
         agent.turn(RIGHT_TURN)
         agent.move(FORWARD, 1)
@@ -67,26 +67,28 @@ player.onChat("run", function () {
 /**
  * Мы вызываем функцию внутри функции
  */
-function plantSection () {
+function посадитьСекцию () {
     for (let index = 0; index < 11; index++) {
-        plantSeed()
+        посадитьСемена()
     }
     agent.move(FORWARD, 1)
 }
  /**
  * Код был изменен, чтобы не сажать семена, если под Агентом нет блока.
  */
-function plantSeed () {
+function посадитьСемена () {
     agent.till(FORWARD)
     agent.move(FORWARD, 1)
-    if (agent.detect(AgentDetection.Block, DOWN)) {
-        agent.place(DOWN)
-    }
+    agent.place(DOWN)
 }
 
 /**
 *  Тебе нужно проверить, стоит ли Агент на лазуритовом блоке, чтобы повернуть направо, если на кварцевом — налево.
 */
+```
+
+```ghost
+player.say(":)")
 ```
 
 ## Шаг 3
@@ -95,7 +97,7 @@ function plantSeed () {
 #### ~ tutorialhint
 ``` blocks
 player.onChat("run", function () {
-    plantSection()
+    посадитьСекцию()
     if (agent.inspect(AgentInspection.Block, DOWN) == LAPIS_LAZULI_BLOCK) {
         agent.turn(RIGHT_TURN)
         agent.move(FORWARD, 1)
@@ -113,21 +115,19 @@ player.onChat("run", function () {
 /**
  * We are calling a function inside a function
  */
-function plantSection () {
+function посадитьСекцию () {
     for (let index = 0; index < 11; index++) {
-        plantSeed()
+        посадитьСемена()
     }
     agent.move(FORWARD, 1)
 }
  /**
  * The code was modified to not place seeds if there's no block under the Agent.
  */
-function plantSeed () {
+function посадитьСемена () {
     agent.till(FORWARD)
     agent.move(FORWARD, 1)
-    if (agent.detect(AgentDetection.Block, DOWN)) {
-        agent.place(DOWN)
-    }
+    agent.place(DOWN)
 }
 
 /**
@@ -135,13 +135,17 @@ function plantSeed () {
 */
 ```
 
+```ghost
+player.say(":)")
+```
+
 ## Step 4
-Наконец, добавь ещё один вызов ``||functions: plantSection||`` внутри команды ``||player: при команде чата||`` за пределами оператора ``||logic: если||``.
+Наконец, добавь ещё один вызов ``||functions: посадитьСекцию||`` внутри команды ``||player: при команде чата||`` за пределами оператора ``||logic: если||``.
 
 #### ~ tutorialhint
 ``` blocks
 player.onChat("run", function () {
-    plantSection()
+    посадитьСекцию()
     if (agent.inspect(AgentInspection.Block, DOWN) == LAPIS_LAZULI_BLOCK) {
         agent.turn(RIGHT_TURN)
         agent.move(FORWARD, 1)
@@ -151,7 +155,7 @@ player.onChat("run", function () {
         agent.move(FORWARD, 1)
         agent.turn(LEFT_TURN)
     }
-    plantSection()
+    посадитьСекцию()
 })
 ```
 
@@ -159,21 +163,19 @@ player.onChat("run", function () {
 /**
  * Мы вызываем функцию внутри функции
  */
-function plantSection () {
+function посадитьСекцию () {
     for (let index = 0; index < 11; index++) {
-        plantSeed()
+        посадитьСемена()
     }
     agent.move(FORWARD, 1)
 }
  /**
  * Код был изменен, чтобы не сажать семена, если под Агентом нет блока.
  */
-function plantSeed () {
+function посадитьСемена () {
     agent.till(FORWARD)
     agent.move(FORWARD, 1)
-    if (agent.detect(AgentDetection.Block, DOWN)) {
-        agent.place(DOWN)
-    }
+    agent.place(DOWN)
 }
 
 /**
@@ -188,7 +190,7 @@ function plantSeed () {
 
 ```ghost
 player.onChat("turn", function () {
-    plantSection()
+    посадитьСекцию()
     if (agent.inspect(AgentInspection.Block, DOWN) == LAPIS_LAZULI_BLOCK) {
         agent.turn(RIGHT_TURN)
         agent.move(FORWARD, 1)
@@ -198,7 +200,8 @@ player.onChat("turn", function () {
         agent.move(FORWARD, 1)
         agent.turn(RIGHT_TURN)
     }
-    plantSection()
+    посадитьСекцию()
 })
+player.say(":)")
 ```
 
