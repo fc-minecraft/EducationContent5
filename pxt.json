@@ -84,7 +84,7 @@
         "tutorial-info-cache.json"
     ],
     "targetVersions": {
-        "target": "2.0.30",
+        "target": "2.0.35",
         "targetId": "minecraft"
     },
     "supportedTargets": [
