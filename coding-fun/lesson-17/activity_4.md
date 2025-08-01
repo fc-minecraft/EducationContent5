@@ -51,6 +51,10 @@ player.onChat("plant", function () {
         посадитьСекцию()
         проверитьПоворот()
     }
+    if (agent.detect(AgentDetection.Block, FORWARD)) {
+	
+    }
+
 })
 
 function проверитьПоворот () {
