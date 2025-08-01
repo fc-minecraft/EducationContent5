@@ -8,7 +8,7 @@
 # Свекла!
 
 ## Шаг 1
-Тебе предоставлены три функции: ``||functions: посадитьСемена||``, ``||functions: посадитьСекцию||`` и ``||functions: проверитьПоворот||``. Сначала создай новую команду ``||player: при команде чата||`` и добавь своё условие: ``||loops: пока||`` Агент ``||agent: осматривает блок вниз||`` и это не **золотой блок**, вызови необходимые функции.
+Тебе предоставлены три функции: ``||functions: посадитьСемена||``, ``||functions: посадитьСекцию||`` и ``||functions: проверитьПоворот||``. Создай код, который засадит все поле 11 на 11 блоков.
 
 
 
@@ -35,7 +35,7 @@ function проверитьПоворот () {
         agent.turn(RIGHT_TURN)
         agent.move(FORWARD, 1)
         agent.turn(RIGHT_TURN)
-    } else if (agent.inspect(AgentInspection.Block, DOWN) == BLOCK_OF_QUARTZ) {
+    } else {
         agent.turn(LEFT_TURN)
         agent.move(FORWARD, 1)
         agent.turn(LEFT_TURN)
@@ -62,7 +62,7 @@ function проверитьПоворот () {
         agent.turn(RIGHT_TURN)
         agent.move(FORWARD, 1)
         agent.turn(RIGHT_TURN)
-    } else if (agent.inspect(AgentInspection.Block, DOWN) == BLOCK_OF_QUARTZ) {
+    } else {
         agent.turn(LEFT_TURN)
         agent.move(FORWARD, 1)
         agent.turn(LEFT_TURN)
